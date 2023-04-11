@@ -11,7 +11,7 @@
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
           crossorigin="anonymous">
 
-    <title>App User</title>
+    <title>Payments</title>
 </head>
 <body>
     <div class="container">
@@ -39,28 +39,30 @@
         <br/>
         <br/>
 
-        <form action="#" th:action="@{save}" th:object="${appUser}" method="POST">
+        <form action="#" th:action="@{create}" th:object="${payment}" method="POST">
             <!-- Add hidden form fields to handle the update -->
-            <input type="hidden" th:field="*{appUserId}">
+            <input type="hidden" th:field="*{id}">
             <input type="hidden" th:field="*{captured}">
             <input type="hidden" th:field="*{lastUpdated}">
 
-           <select th:field="*{roles}" class="form-control mb-4 w-25" th:placeholder="Role">
-                <option  th:each="role : ${appUser.getRoles()}" th:value="${role.getName()}" th:text="${role.getDescription()}"></option>
-            </select>
 
-            <input type="text" th:field="*{userName}" class="form-control mb-4 w-25" placeholder="Username"/>
+            <input type="text" th:field="*{payedDate}" class="form-control mb-4 w-25" placeholder="Payment Date"/>
 
-            <input type="text" th:field="*{passWord}" class="form-control mb-4 w-25" placeholder="Password"/>
+            <input type="text" th:field="*{amount}" class="form-control mb-4 w-25" placeholder="Last Name"/>
+
+    <!--        <input type="text" th:field="*{primaryPhoneNumber}" class="form-control mb-4 w-25" placeholder="Primary Phone Number"/>
+
+            <input type="text" th:field="*{secondaryPhoneNumber}" class="form-control mb-4 w-25" placeholder="Secondary Phone Number"/>
+
+            <input type="text" th:field="*{emailAddress}" class="form-control mb-4 w-25" placeholder="Email Address"/>-->
 
             <button type="submit" class="btn btn-info col-2">Save</button>
 
             <hr/>
 
-            <a th:href="@{list}">Back to Application User List</a>
+            <a th:href="@{list}">Back To Payment List</a>
 
         </form>
-        <p></p>
     </div>
 </body>
 </html>

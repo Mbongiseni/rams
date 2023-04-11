@@ -11,7 +11,7 @@
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
           crossorigin="anonymous">
 
-    <title>App User</title>
+    <title>Payment</title>
 </head>
 <body>
 <div class="container">
@@ -40,35 +40,35 @@
     <br/>
 
     <!-- Add App User Button -->
-    <a th:href="@{app-user-form}" class="btn btn-primary btn-sm mb-3">
-        Add User
+    <a th:href="@{payment-form}" class="btn btn-primary btn-sm mb-3">
+        Add Payment
     </a>
 
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
         <tr>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Captured</th>
+            <th>Payed Date</th>
+            <th>Amount</th>
+            <th>Captured Date</th>
             <th>Last Updated</th>
             <th>Action</th>
         </tr>
         </thead>
 
         <tbody>
-        <tr th:each="appUser : ${appUserList}">
-            <td th:text="${appUser.getUserName()}"/>
-            <td th:text="${appUser.getPassWord()}"/>
-            <td th:text="${appUser.getCaptured()}"/>
-            <td th:text="${appUser.getLastUpdated()}"/>
+        <tr th:each="payment : ${paymentList}">
+            <td th:text="${payment.getPayedDate()}"/>
+            <td th:text="${payment.getAmount()}"/>
+            <td th:text="${payment.getCaptured()}"/>
+            <td th:text="${payment.getLastUpdated()}"/>
             <!-- Add update button link -->
             <td>
                 <!-- Appends to URL ?appUserId=xxx -->
-                <a th:href="@{update(appUserId=${appUser.getAppUserId()})}" class="btn btn-info btn-sm">
+                <a th:href="@{update(paymentId=${payment.getId()})}" class="btn btn-info btn-sm">
                     Update</a>
 
                 <!-- Delete button/link  -->
-                <a th:href="@{delete(appUserId=${appUser.getAppUserId()})}" class="btn btn-danger btn-sm"
+                <a th:href="@{delete(paymentId=${payment.getId()})}" class="btn btn-danger btn-sm"
                    onclick="if (!(confirm('Are you sure you want to delete this page?'))) return false">
                     Delete</a>
             </td>
